@@ -7,16 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18000c88-dc98-4844-82f4-d6d3e5797f49" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/flx_common_package.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flx_common_package.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/flx_generic_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/models/flx_generic_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/position.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/models/position.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/training.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/models/training.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/video.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/models/video.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/models/widgets/error_popup.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/models/widgets/search_popup.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/models/widgets/text_icon_button.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/models/widgets/upload_icon.dart" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -34,11 +25,8 @@
       <file leaf-file-name="flx_common_package.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/flx_common_package.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="e#29#102#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="114">
+              <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -46,7 +34,9 @@
       <file leaf-file-name="flx_generic_response.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/models/flx_generic_response.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state />
+            <state relative-caret-position="57">
+              <caret line="3" column="21" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="21" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -156,7 +146,7 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="PackagesPane" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -173,6 +163,19 @@
               <item name="flx_common_package" type="b2602c69:ProjectViewProjectNode" />
               <item name="flx_common_package" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flx_common_package" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flx_common_package" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flx_common_package" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flx_common_package" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="flx_common_package" type="b2602c69:ProjectViewProjectNode" />
@@ -417,16 +420,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/models/flx_generic_response.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state />
+        <state relative-caret-position="57">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="21" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/flx_common_package.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#29#102#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="114">
+          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
         </state>
       </provider>
     </entry>
