@@ -1,5 +1,3 @@
-library flx_common_package;
-
 /// Position given in latitude and longitude
 ///
 /// `latitude` double latitude

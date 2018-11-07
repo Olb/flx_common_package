@@ -1,5 +1,3 @@
-library flx_common_package;
-
 import 'video.dart';
 
 /// A list of Training items

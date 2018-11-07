@@ -1,5 +1,3 @@
-library flx_common_package;
-
 /// A generic response from FLX server
 ///
 /// message String the messaged returned from the server

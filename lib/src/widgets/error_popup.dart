@@ -1,5 +1,3 @@
-library flx_common_package;
-
 import 'package:flutter/material.dart';
 
 class ErrorPopup extends StatelessWidget {

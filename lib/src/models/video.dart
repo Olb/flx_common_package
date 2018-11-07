@@ -1,5 +1,3 @@
-library flx_common_package;
-
 /// A list of videos
 ///
 /// `videos` List<dynamic> a list of `video`
