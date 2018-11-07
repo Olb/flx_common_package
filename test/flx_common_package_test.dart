@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import 'package:flx_common_package/flx_common_package.dart';
+import 'package:flx_common_package/common.dart';
 
 void main() {
 //  test('adds one to input values', () {
