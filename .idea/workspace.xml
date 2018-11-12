@@ -7,15 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18000c88-dc98-4844-82f4-d6d3e5797f49" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/src/blocs/training_bloc.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/blocs/training_provider.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/models/user.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/utils/api.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/widgets/loading_indicator.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/common.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
@@ -49,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="training_provider.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="training_provider.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/blocs/training_provider.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
@@ -95,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pubspec.yaml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pubspec.yaml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pubspec.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+            <state relative-caret-position="38">
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -156,11 +147,11 @@
         <option value="$PROJECT_DIR$/lib/src/models/flx_generic_response.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/loading_indicator.dart" />
         <option value="$PROJECT_DIR$/lib/src/models/user.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/src/utils/api.dart" />
         <option value="$PROJECT_DIR$/lib/src/blocs/training_bloc.dart" />
         <option value="$PROJECT_DIR$/lib/common.dart" />
         <option value="$PROJECT_DIR$/lib/src/blocs/training_provider.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
       </list>
     </option>
   </component>
@@ -623,13 +614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/utils/api.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -665,6 +649,13 @@
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
