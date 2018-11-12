@@ -16,6 +16,8 @@ export 'package:flx_common_package/src/widgets/training_page.dart';
 export 'package:flx_common_package/src/widgets/training_list_page.dart';
 export 'package:flx_common_package/src/widgets/video_player.dart';
 export 'package:flx_common_package/src/widgets/home_header_widget.dart';
-export 'package:flx_common_package/src/utils/api.dart';
 export 'package:flx_common_package/src/blocs/training_bloc.dart';
 export 'package:flx_common_package/src/blocs/training_provider.dart';
+export 'package:flx_common_package/src/utils/api.dart';
+export 'package:flx_common_package/src/utils/barcode_scanner.dart';
+

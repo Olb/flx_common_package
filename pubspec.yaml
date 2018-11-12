@@ -1,6 +1,6 @@
 name: flx_common_package
 description: Common components for FLX Vizual* products
-version: 0.0.6
+version: 0.0.7
 author:
 homepage:
 
@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   rxdart: ^0.19.0
   video_player: ^0.7.2
+  firebase_ml_vision: ^0.2.0+1
+  image_picker: ^0.4.10
 
 dev_dependencies:
   flutter_test:
