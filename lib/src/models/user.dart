@@ -4,12 +4,14 @@ class User {
   String accessToken;
   String companyName;
   String companyAddress;
-  User(this.loginId, this.loggedIn, this.accessToken, this.companyAddress, this.companyName);
+  String welcomeMessage;
+  User(this.loginId, this.loggedIn, this.accessToken, this.companyAddress, this.companyName,this.welcomeMessage);
   User.loggedOut() {
     this.loginId = '';
     this.loggedIn = false;
     this.accessToken = '';
     this.companyName = '';
     this.companyAddress = '';
+    this.welcomeMessage = '';
   }
 }
