@@ -34,6 +34,7 @@ class TextIconButton extends StatelessWidget {
                     style: TextStyle(
                       fontSize: Theme.of(context).textTheme.body1.fontSize,
                       color: Theme.of(context).accentColor,
+                      fontWeight: FontWeight.bold
                     ),
                   ),
                 ),
