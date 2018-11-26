@@ -6,7 +6,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18000c88-dc98-4844-82f4-d6d3e5797f49" name="Default" comment="" />
+    <list default="true" id="18000c88-dc98-4844-82f4-d6d3e5797f49" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/lib/src/widgets/text_icon_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/widgets/text_icon_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <ignored path="$PROJECT_DIR$/.pub/" />
@@ -89,11 +92,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="text_icon_button.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/src/widgets/text_icon_button.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="34" column="65" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="training_bloc.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/blocs/training_bloc.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-37">
-              <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-end-line="4" />
+            <state relative-caret-position="57">
+              <caret line="3" column="17" selection-start-line="3" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -104,13 +116,6 @@
             <state relative-caret-position="532">
               <caret line="28" selection-start-line="28" selection-end-line="28" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="upload_icon.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/src/widgets/upload_icon.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state />
           </provider>
         </entry>
       </file>
@@ -141,7 +146,6 @@
         <option value="$PROJECT_DIR$/lib/widgets/error_popup.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/error_popup.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/search_popup.dart" />
-        <option value="$PROJECT_DIR$/lib/src/widgets/text_icon_button.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/upload_icon.dart" />
         <option value="$PROJECT_DIR$/lib/src/models/video.dart" />
         <option value="$PROJECT_DIR$/lib/src/models/training.dart" />
@@ -160,15 +164,15 @@
         <option value="$PROJECT_DIR$/lib/src/widgets/home_header_widget.dart" />
         <option value="$PROJECT_DIR$/lib/src/utils/barcode_scanner.dart" />
         <option value="$PROJECT_DIR$/lib/common.dart" />
+        <option value="$PROJECT_DIR$/lib/src/widgets/text_icon_button.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="193" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="804" />
+    <option name="height" value="806" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -176,36 +180,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
-              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
-              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
-              <item name="src" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
-              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
-              <item name="src" type="1f31426a:PackageElementNode" />
-              <item name="models" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
-              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
-              <item name="src" type="1f31426a:PackageElementNode" />
-              <item name="widgets" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -261,6 +235,36 @@
           <select />
         </subPane>
         <option name="show-excluded-files" value="false" />
+      </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
+              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
+              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
+              <item name="src" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
+              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
+              <item name="src" type="1f31426a:PackageElementNode" />
+              <item name="models" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
+              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
+              <item name="src" type="1f31426a:PackageElementNode" />
+              <item name="widgets" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
       </pane>
     </panes>
   </component>
@@ -347,7 +351,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="804" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="806" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -371,12 +375,12 @@
       <window_info anchor="right" id="Flutter Inspector" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" visible="true" weight="0.32748538" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32892805" />
-      <window_info anchor="bottom" id="Messages" order="7" visible="true" weight="0.32748538" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -563,11 +567,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/widgets/text_icon_button.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/widgets/error_popup.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -661,8 +660,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/blocs/training_bloc.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-37">
-          <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-end-line="4" />
+        <state relative-caret-position="57">
+          <caret line="3" column="17" selection-start-line="3" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -670,6 +669,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/widgets/text_icon_button.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="34" column="65" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
         </state>
       </provider>
     </entry>
