@@ -1,110 +1,157 @@
 import 'package:flutter/material.dart';
 
-class SearchPopupWidget extends StatefulWidget {
+class SearchPopup extends StatefulWidget {
+  final BuildContext homePageContext;
+
+  SearchPopup(this.homePageContext);
+
   @override
-  _SearchPopupWidgetState createState() => _SearchPopupWidgetState();
+  State<StatefulWidget> createState() {
+    return _SearchPopupState(homePageContext);
+  }
 }
 
-class _SearchPopupWidgetState extends State<SearchPopupWidget> {
+class _SearchPopupState extends State<SearchPopup> {
+  final _searchKey = GlobalKey<FormState>();
+  final BuildContext homePageContext;
+  String _searchTerm;
+  bool scanSuccess;
+  final textFieldController = TextEditingController();
+  var _isSearching = false;
 
-  final _textController = TextEditingController();
+  _SearchPopupState(this.homePageContext);
 
   @override
   Widget build(BuildContext context) {
+    final _textColor = Colors.white;
+
+    Widget _titleText = Text(
+      'Enter a search term',
+      style: TextStyle(
+          color: _textColor, fontSize: 20.0, fontWeight: FontWeight.bold),
+    );
+
+    Widget _formTextField = Form(
+      key: _searchKey,
+      child: TextFormField(
+        textAlign: TextAlign.center,
+        controller: textFieldController,
+        validator: (value) {
+          if (value.isEmpty) {
+            return 'Search term cannot be blank';
+          }
+          _searchTerm = value;
+        },
+        decoration: InputDecoration(labelText: 'Search Term'),
+      ),
+    );
+
+    void _validateForm() {
+      final searchForm = _searchKey.currentState;
+      if (searchForm.validate()) {
+        searchForm.save();
+        Navigator.pop(context, _searchTerm);
+      }
+    }
+
+    Widget _cancelButton = FlatButton(
+        child: Text(
+          'Cancel',
+          style: TextStyle(
+            color: _textColor,
+          ),
+        ),
+        onPressed: () {
+          Navigator.pop(context);
+        });
+
+    _textFieldClear() {
+      textFieldController.text = ' ';
+      _searchKey.currentState.validate();
+      textFieldController.clear();
+    }
+
+    Future<void> _showSearching(bool isScanning) async {
+      setState(() {
+        _isSearching = isScanning;
+      });
+      return await Future.delayed(Duration(milliseconds: 500));
+    }
+
+    Widget _okButton = FlatButton(
+      child: Text(
+        'OK',
+        style: TextStyle(color: _textColor, fontWeight: FontWeight.bold),
+      ),
+      onPressed: () {
+        {
+          _validateForm();
+        }
+      },
+    );
+
     return Dialog(
       child: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).accentColor,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Text(
-                'Search for a barcode or product name.',
-                style: TextStyle(color: Colors.white, fontSize: 22.0),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 16.0, left: 16.0),
-                    child: TextField(
-                      controller: _textController,
-                      style: TextStyle(color: Colors.white, fontSize: 22.0),
-                      decoration: InputDecoration(
-                        labelText: 'Product name or barcode',
-                        labelStyle: TextStyle(color: Colors.white),
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
+        child: _isSearching == false
+            ? Column(
+                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Expanded(
-                    child: IconButton(
-                        iconSize: 40.0,
-                        icon: Icon(
-                          Icons.cancel,
-                          color: Colors.red,
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        }),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: _titleText,
                   ),
-                  Expanded(
-                    child: IconButton(
-                      iconSize: 40.0,
-                      icon: Image.asset(
-                        'im/barcode-scan.png',
-                        scale: 0.01,
-                      ),
-                      onPressed: () async {
-                        String result = '';//await BarcodeScanner.scanImage();
-                        if (result == null) {
-                          // deal with this later
-                        }
-                      },
+                  Theme(
+                    data: Theme.of(context).copyWith(primaryColor: _textColor),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: _formTextField,
                     ),
                   ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.mic,
-                      color: Colors.white,
-                    ),
-                    onPressed: () => print("mic pressed"),
-                  ),
-                  Expanded(
-                    child: IconButton(
-                        iconSize: 40.0,
-                        icon: Icon(
-                          Icons.done,
-                          color: Colors.green,
+                  Center(
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: _cancelButton,
+                          ),
                         ),
-                        onPressed: () {
-                          _textController.clear();
-                        }),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: _okButton,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
+              )
+            : Container(
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Identifying Code',
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              color: _textColor,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CircularProgressIndicator(),
+                      )
+                    ],
+                  ),
+                ),
+                height: 110.0,
               ),
-            )
-          ],
-        ),
       ),
     );
   }
-
 }
