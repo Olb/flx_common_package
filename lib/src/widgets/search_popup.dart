@@ -55,11 +55,13 @@ class _SearchPopupState extends State<SearchPopup> {
         validator: (value) {
           if (value.isEmpty) {
             return 'Search term cannot be blank';
+          } else if (value == 'empty') {
+            return 'No Results found';
           }
           _searchTerm = value;
         },
         style: TextStyle(color: Colors.white),
-        decoration: InputDecoration(labelText: 'Search Term'),
+        decoration: _searchTerm == 'empty' ? InputDecoration(labelText: 'Search Term', errorText: 'Try again') : InputDecoration(labelText: 'Search Term'),
       ),
     );
 
@@ -72,11 +74,7 @@ class _SearchPopupState extends State<SearchPopup> {
         _isSearching = false;
       });
       if (products == null || products.trainingList.isEmpty) {
-        Scaffold.of(_homePageContext).showSnackBar(SnackBar(
-          content: Text('No results found'),
-          duration: Duration(seconds: 1),
-        ));
-        return;
+        return null;
       }
     }
 
@@ -85,6 +83,8 @@ class _SearchPopupState extends State<SearchPopup> {
       if (searchForm.validate()) {
         final training = await _performSearch() as TrainingList;
         if (training == null || training.trainingList.isEmpty) {
+          textFieldController.text = 'empty';
+          searchForm.validate();
           return;
         }
         searchForm.save();
