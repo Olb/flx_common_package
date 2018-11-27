@@ -154,7 +154,7 @@ class _SearchPopupState extends State<SearchPopup> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          'Identifying Code',
+                          'Searching',
                           style: TextStyle(
                               fontSize: 18.0,
                               color: _textColor,
