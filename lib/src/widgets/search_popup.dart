@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class SearchPopup extends StatefulWidget {
   final BuildContext homePageContext;
 
@@ -38,6 +37,8 @@ class _SearchPopupState extends State<SearchPopup> {
     Widget _formTextField = Form(
       key: _searchKey,
       child: TextFormField(
+        autofocus: true,
+        autocorrect: false,
         textAlign: TextAlign.center,
         controller: textFieldController,
         validator: (value) {
@@ -58,7 +59,13 @@ class _SearchPopupState extends State<SearchPopup> {
       }
     }
 
-    Widget _micButton = IconButton(icon: Icon(Icons.mic, color: Colors.white,), onPressed: () => print('Not implemented'));
+    Widget _micButton = IconButton(
+        icon: Icon(
+          Icons.mic,
+          color: Colors.white,
+        ),
+        onPressed: () => print('Not implemented'));
+
     Widget _cancelButton = FlatButton(
         child: Text(
           'Cancel',
@@ -125,7 +132,7 @@ class _SearchPopupState extends State<SearchPopup> {
                         Expanded(
                           child: Padding(
                             padding: const EdgeInsets.only(bottom: 8.0),
-                            child: _cancelButton,
+                            child: _micButton,
                           ),
                         ),
                         Expanded(
