@@ -82,13 +82,13 @@ class _SearchPopupState extends State<SearchPopup> {
     void _validateForm() async {
       final searchForm = _searchKey.currentState;
       if (searchForm.validate()) {
-        setState(() {
-          _isSearching = true;
-        });
+//        setState(() {
+//          _isSearching = true;
+//        });
         final training = await _performSearch() as TrainingList;
-        setState(() {
-          _isSearching = false;
-        });
+//        setState(() {
+//          _isSearching = false;
+//        });
         if (training == null || training.trainingList.isEmpty) {
           textFieldController.text = 'no results found';
           searchForm.validate();
