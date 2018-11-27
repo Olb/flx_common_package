@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flx_common_package/common.dart';
 
+
+/// Popup for searching training and products
+///
+/// `homePageContext` BuildContext
+/// `user` User
+/// `api` Api
 class SearchPopup extends StatefulWidget {
   final BuildContext homePageContext;
   final User user;
@@ -101,7 +107,7 @@ class _SearchPopupState extends State<SearchPopup> {
           ),
         ),
         onPressed: () {
-          Navigator.pop(context);
+          Navigator.pop(context, null);
         });
 
     _textFieldClear() {
