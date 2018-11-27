@@ -48,7 +48,7 @@ class _SearchPopupState extends State<SearchPopup> {
           _searchTerm = value;
         },
         style: TextStyle(color: Colors.white),
-        decoration: InputDecoration(labelText: 'Search Term', errorText: 'Try again'),
+        decoration: InputDecoration(labelText: 'Search Term'),
       ),
     );
 
