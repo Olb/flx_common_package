@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flx_common_package/common.dart';
 
 class SearchPopup extends StatefulWidget {
   final BuildContext homePageContext;
+  final User user;
+  final Api api;
 
   /// Returns a Search popup dialog
   ///
   /// `homePageContext` a BuildContext
-  SearchPopup(this.homePageContext);
+  SearchPopup(this.homePageContext, this.user, this.api);
 
   @override
   State<StatefulWidget> createState() {
-    return _SearchPopupState(homePageContext);
+    return _SearchPopupState(homePageContext, api, user);
   }
 }
 
 class _SearchPopupState extends State<SearchPopup> {
   final _searchKey = GlobalKey<FormState>();
-  final BuildContext homePageContext;
+  final BuildContext _homePageContext;
   String _searchTerm;
   bool scanSuccess;
   final textFieldController = TextEditingController();
   var _isSearching = false;
+  final Api api;
+  final User user;
 
-  _SearchPopupState(this.homePageContext);
+  _SearchPopupState(this._homePageContext, this.api, this.user);
 
   @override
   Widget build(BuildContext context) {
@@ -52,11 +57,32 @@ class _SearchPopupState extends State<SearchPopup> {
       ),
     );
 
-    void _validateForm() {
+    Future<dynamic> _performSearch() async {
+      setState(() {
+        _isSearching = true;
+      });
+      final products = await api.getProducts(user, _searchTerm) as TrainingList;
+      setState(() {
+        _isSearching = false;
+      });
+      if (products == null || products.trainingList.isEmpty) {
+        Scaffold.of(_homePageContext).showSnackBar(SnackBar(
+          content: Text('No results found'),
+          duration: Duration(seconds: 1),
+        ));
+        return;
+      }
+    }
+
+    void _validateForm() async {
       final searchForm = _searchKey.currentState;
       if (searchForm.validate()) {
+        final training = await _performSearch() as TrainingList;
+        if (training == null || training.trainingList.isEmpty) {
+          return;
+        }
         searchForm.save();
-        Navigator.pop(context, _searchTerm);
+        Navigator.pop(context, training);
       }
     }
 
@@ -82,13 +108,6 @@ class _SearchPopupState extends State<SearchPopup> {
       textFieldController.text = ' ';
       _searchKey.currentState.validate();
       textFieldController.clear();
-    }
-
-    Future<void> _showSearching(bool isScanning) async {
-      setState(() {
-        _isSearching = isScanning;
-      });
-      return await Future.delayed(Duration(milliseconds: 500));
     }
 
     Widget _okButton = FlatButton(
@@ -164,7 +183,7 @@ class _SearchPopupState extends State<SearchPopup> {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: CircularProgressIndicator(),
+                        child: CircularProgressIndicator(backgroundColor: Colors.white,),
                       )
                     ],
                   ),
