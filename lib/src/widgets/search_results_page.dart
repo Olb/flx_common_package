@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flx_common_package/common.dart';
 
-class TrainingListPage extends StatelessWidget {
+class SearchResultsPage extends StatelessWidget {
   final User user;
   final Api api;
-  TrainingListPage(this.user, this.api);
+  final String searchTerm;
+  SearchResultsPage(this.user, this.api, this.searchTerm);
+
 
   @override
   Widget build(BuildContext context) {
+
     final trainingBloc = TrainingBloc(user, api);
+    trainingBloc.getProducts(searchTerm);
 
     return TrainingProvider(
       vizualProofBloc: trainingBloc,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Training List'),
+          title: Text('Results'),
         ),
         body: StreamBuilder<TrainingList>(
-          stream: trainingBloc.trainingList,
+          stream: trainingBloc.products,
           initialData: null,
           builder: (ctx, snapshot) {
             if (snapshot.hasData) {
@@ -45,18 +49,36 @@ class TrainingListPage extends StatelessWidget {
                     new Text(snapshot.data.trainingList[index].description),
                     onTap: () {
                       Training training = snapshot.data.trainingList[index];
-                      if (training.videoList.length == 0) {
+                      if (training.instructionVideos.isEmpty && training.productVideos.isEmpty) {
                         Scaffold.of(itemBuilderCtx).showSnackBar(SnackBar(
-                          content: Text('There is no video for this training'),
+                          content: Text('There are no videos for this item'),
                           duration: Duration(milliseconds: 750),
                         ));
                         return;
                       }
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (ctx) =>
-                                  VideoPage(training.videoList.first.fileUrl)));
+                      // Go straight to video if there is only one for the training
+                      // either product or instruction
+                      if (training.productVideos.isEmpty && training.instructionVideos.length == 1) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (ctx) =>
+                                    VideoPage(training.instructionVideos.first
+                                        .fileUrl)));
+                      } else if (training.instructionVideos.isEmpty && training.productVideos.length== 1) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (ctx) =>
+                                    VideoPage(training.productVideos.first.fileUrl)));
+                      } else {
+                        // multiple videos
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (ctx) =>
+                                    TrainingPage(training)));
+                      }
                     },
                   );
                 },

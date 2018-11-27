@@ -2,6 +2,7 @@ library flx_common_package;
 
 export 'package:flx_common_package/src/models/flx_generic_response.dart';
 export 'package:flx_common_package/src/models/position.dart';
+export 'package:flx_common_package/src/models/simple_training.dart';
 export 'package:flx_common_package/src/models/training.dart';
 export 'package:flx_common_package/src/models/flx_generic_response.dart';
 export 'package:flx_common_package/src/models/video.dart';
@@ -13,7 +14,8 @@ export 'package:flx_common_package/src/widgets/upload_icon.dart';
 export 'package:flx_common_package/src/widgets/loading_indicator.dart';
 export 'package:flx_common_package/src/widgets/loading_dialog.dart';
 export 'package:flx_common_package/src/widgets/training_page.dart';
-export 'package:flx_common_package/src/widgets/training_list_page.dart';
+export 'package:flx_common_package/src/widgets/simple_training_list_page.dart';
+export 'package:flx_common_package/src/widgets/search_results_page.dart';
 export 'package:flx_common_package/src/widgets/video_player.dart';
 export 'package:flx_common_package/src/widgets/home_header_widget.dart';
 export 'package:flx_common_package/src/blocs/training_bloc.dart';
