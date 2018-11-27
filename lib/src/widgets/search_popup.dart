@@ -45,6 +45,12 @@ class _SearchPopupState extends State<SearchPopup> {
           color: _textColor, fontSize: 20.0, fontWeight: FontWeight.bold),
     );
 
+    _textFieldClear() {
+      textFieldController.text = ' ';
+      _searchKey.currentState.validate();
+      textFieldController.clear();
+    }
+
     Widget _formTextField = Form(
       key: _searchKey,
       child: TextFormField(
@@ -56,23 +62,18 @@ class _SearchPopupState extends State<SearchPopup> {
           if (value.isEmpty) {
             return 'Search term cannot be blank';
           } else if (value == 'empty') {
+            _textFieldClear();
             return 'No Results found';
           }
           _searchTerm = value;
         },
         style: TextStyle(color: Colors.white),
-        decoration: _searchTerm == 'empty' ? InputDecoration(labelText: 'Search Term', errorText: 'Try again') : InputDecoration(labelText: 'Search Term'),
+        decoration: _searchTerm == 'no results found' ? InputDecoration(labelText: 'Search Term', errorText: 'Try again') : InputDecoration(labelText: 'Search Term'),
       ),
     );
 
     Future<dynamic> _performSearch() async {
-      setState(() {
-        _isSearching = true;
-      });
       final products = await api.getProducts(user, _searchTerm) as TrainingList;
-      setState(() {
-        _isSearching = false;
-      });
       if (products == null || products.trainingList.isEmpty) {
         return null;
       }
@@ -81,9 +82,15 @@ class _SearchPopupState extends State<SearchPopup> {
     void _validateForm() async {
       final searchForm = _searchKey.currentState;
       if (searchForm.validate()) {
+        setState(() {
+          _isSearching = true;
+        });
         final training = await _performSearch() as TrainingList;
+        setState(() {
+          _isSearching = false;
+        });
         if (training == null || training.trainingList.isEmpty) {
-          textFieldController.text = 'empty';
+          textFieldController.text = 'no results found';
           searchForm.validate();
           return;
         }
@@ -109,12 +116,6 @@ class _SearchPopupState extends State<SearchPopup> {
         onPressed: () {
           Navigator.pop(context, null);
         });
-
-    _textFieldClear() {
-      textFieldController.text = ' ';
-      _searchKey.currentState.validate();
-      textFieldController.clear();
-    }
 
     Widget _okButton = FlatButton(
       child: Text(
