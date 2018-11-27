@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
+
 class SearchPopup extends StatefulWidget {
   final BuildContext homePageContext;
 
+  /// Returns a Search popup dialog
+  ///
+  /// `homePageContext` a BuildContext
   SearchPopup(this.homePageContext);
 
   @override
@@ -54,6 +58,7 @@ class _SearchPopupState extends State<SearchPopup> {
       }
     }
 
+    Widget _micButton = IconButton(icon: Icon(Icons.mic, color: Colors.white,), onPressed: () => print('Not implemented'));
     Widget _cancelButton = FlatButton(
         child: Text(
           'Cancel',
@@ -92,6 +97,7 @@ class _SearchPopupState extends State<SearchPopup> {
 
     return Dialog(
       child: Container(
+        color: Colors.black,
         child: _isSearching == false
             ? Column(
                 mainAxisSize: MainAxisSize.min,
@@ -110,6 +116,12 @@ class _SearchPopupState extends State<SearchPopup> {
                   Center(
                     child: Row(
                       children: <Widget>[
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: _cancelButton,
+                          ),
+                        ),
                         Expanded(
                           child: Padding(
                             padding: const EdgeInsets.only(bottom: 8.0),
