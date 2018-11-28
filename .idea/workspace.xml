@@ -6,9 +6,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18000c88-dc98-4844-82f4-d6d3e5797f49" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/lib/common.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common.dart" afterDir="false" />
-    </list>
+    <list default="true" id="18000c88-dc98-4844-82f4-d6d3e5797f49" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <ignored path="$PROJECT_DIR$/.pub/" />
@@ -25,7 +23,7 @@
       <file leaf-file-name="common.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/common.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
+            <state relative-caret-position="278">
               <caret line="22" column="59" lean-forward="true" selection-start-line="22" selection-start-column="59" selection-end-line="23" selection-end-column="62" />
             </state>
           </provider>
@@ -134,11 +132,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-1920" />
-    <option name="y" value="-157" />
-    <option name="width" value="1920" />
-    <option name="height" value="1057" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="811" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -317,7 +314,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="-157" width="1920" height="1057" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="811" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -332,8 +329,8 @@
       <window_info anchor="right" id="Flutter Outline" order="3" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24920128" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32657418" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33476394" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.44283646" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Fabric" order="3" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -678,7 +675,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/common.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
+        <state relative-caret-position="278">
           <caret line="22" column="59" lean-forward="true" selection-start-line="22" selection-start-column="59" selection-end-line="23" selection-end-column="62" />
         </state>
       </provider>
