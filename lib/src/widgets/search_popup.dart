@@ -1,43 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:flx_common_package/common.dart';
-
+import 'dart:async';
 
 /// Popup for searching training and products
 ///
-/// `homePageContext` BuildContext
 /// `user` User
 /// `api` Api
 class SearchPopup extends StatefulWidget {
-  final BuildContext homePageContext;
   final User user;
   final Api api;
-
   /// Returns a Search popup dialog
   ///
-  /// `homePageContext` a BuildContext
-  SearchPopup(this.homePageContext, this.user, this.api);
+  /// `user` User
+  /// `api` Api
+  SearchPopup(this.user, this.api);
 
   @override
   State<StatefulWidget> createState() {
-    return _SearchPopupState(homePageContext, api, user);
+    return _SearchPopupState(user, api);
   }
 }
 
 class _SearchPopupState extends State<SearchPopup> {
   final _searchKey = GlobalKey<FormState>();
-  final BuildContext _homePageContext;
-  String _searchTerm;
-  bool scanSuccess;
   final textFieldController = TextEditingController();
-  var _isSearching = false;
-  final Api api;
   final User user;
+  final _textColor = Colors.white;
+  final Api api;
+  String _searchTerm;
+  Stream<SearchBloc> stream;
+  StreamSubscription _searchSubscription;
 
-  _SearchPopupState(this._homePageContext, this.api, this.user);
+  _SearchPopupState(this.user, this.api);
+
+  void _onData(TrainingList training) {
+    if (training.trainingList.isEmpty) {
+      textFieldController.text = 'no results found';
+      _searchKey.currentState.validate();
+    } else {
+      _validateForm(training);
+    }
+  }
+
+  void _validateForm(TrainingList training) async {
+    final searchForm = _searchKey.currentState;
+    if (searchForm.validate()) {
+      searchForm.save();
+      Navigator.pop(context, training);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    final _textColor = Colors.white;
+    final searchBloc = SearchBloc(api);
+
+    _searchSubscription = searchBloc.searchResult.listen(_onData);
 
     Widget _titleText = Text(
       'Enter a search term',
@@ -61,43 +78,16 @@ class _SearchPopupState extends State<SearchPopup> {
         validator: (value) {
           if (value.isEmpty) {
             return 'Search term cannot be blank';
-          } else if (value == 'empty') {
+          } else if (value == 'no results found') {
             _textFieldClear();
-            return 'No Results found';
+            return 'No results found - try again.';
           }
           _searchTerm = value;
         },
         style: TextStyle(color: Colors.white),
-        decoration: _searchTerm == 'no results found' ? InputDecoration(labelText: 'Search Term', errorText: 'Try again') : InputDecoration(labelText: 'Search Term'),
+        decoration: InputDecoration(labelText: 'Search Term or Barcode'),
       ),
     );
-
-    Future<dynamic> _performSearch() async {
-      final products = await api.getProducts(user, _searchTerm) as TrainingList;
-      if (products == null || products.trainingList.isEmpty) {
-        return null;
-      }
-    }
-
-    void _validateForm() async {
-      final searchForm = _searchKey.currentState;
-      if (searchForm.validate()) {
-//        setState(() {
-//          _isSearching = true;
-//        });
-        final training = await _performSearch() as TrainingList;
-//        setState(() {
-//          _isSearching = false;
-//        });
-        if (training == null || training.trainingList.isEmpty) {
-          textFieldController.text = 'no results found';
-          searchForm.validate();
-          return;
-        }
-        searchForm.save();
-        Navigator.pop(context, training);
-      }
-    }
 
     Widget _micButton = IconButton(
         icon: Icon(
@@ -122,18 +112,24 @@ class _SearchPopupState extends State<SearchPopup> {
         'OK',
         style: TextStyle(color: _textColor, fontWeight: FontWeight.bold),
       ),
-      onPressed: () {
+      onPressed: () async {
         {
-          _validateForm();
+          if (!(_searchKey.currentState.validate())) {
+            return;
+          }
+          searchBloc.addSearchTerm.add(_searchTerm);
         }
       },
     );
 
     return Dialog(
-      child: Container(
-        color: Colors.black,
-        child: _isSearching == false
-            ? Column(
+      child: SearchProvider(
+        searchBloc: searchBloc,
+        child: Stack(
+          children: <Widget>[
+            Container(
+              color: Colors.black,
+              child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Padding(
@@ -147,57 +143,91 @@ class _SearchPopupState extends State<SearchPopup> {
                       child: _formTextField,
                     ),
                   ),
-                  Center(
-                    child: Row(
+                  StreamBuilder(
+                    initialData: false,
+                    stream: searchBloc.loading,
+                    builder: (ctx, snapshot) {
+                      if (!snapshot.data) {
+                        return Center(
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(bottom: 8.0),
+                                  child: _cancelButton,
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(bottom: 8.0),
+                                  child: _micButton,
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(bottom: 8.0),
+                                  child: _okButton,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      }
+                      return Container(
+                        height: 0,
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+            StreamBuilder(
+              stream: searchBloc.loading,
+              initialData: false,
+              builder: (ctx, snapshot) {
+                if (!snapshot.data) {
+                  return Container(
+                    height: 0,
+                  );
+                }
+                return Container(
+                  color: Colors.black,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: _cancelButton,
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Searching',
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                color: _textColor,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: _micButton,
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircularProgressIndicator(
+                            backgroundColor: Colors.white,
                           ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: _okButton,
-                          ),
-                        ),
+                        )
                       ],
                     ),
                   ),
-                ],
-              )
-            : Container(
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Searching',
-                          style: TextStyle(
-                              fontSize: 18.0,
-                              color: _textColor,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: CircularProgressIndicator(backgroundColor: Colors.white,),
-                      )
-                    ],
-                  ),
-                ),
-                height: 110.0,
-              ),
+                  height: 110.0,
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _searchSubscription.cancel();
+    super.dispose();
   }
 }
