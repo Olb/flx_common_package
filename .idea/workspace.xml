@@ -7,7 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18000c88-dc98-4844-82f4-d6d3e5797f49" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/lib/common.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/models/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/models/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -22,7 +23,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="common.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="common.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/common.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="169">
@@ -34,8 +35,8 @@
       <file leaf-file-name="user.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/models/user.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+            <state relative-caret-position="361">
+              <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -49,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pubspec.yaml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pubspec.yaml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pubspec.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+            <state relative-caret-position="76">
+              <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -173,9 +174,9 @@
         <option value="$PROJECT_DIR$/lib/src/blocs/search_provider.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/search_popup.dart" />
         <option value="$PROJECT_DIR$/lib/src/models/training.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/lib/src/models/user.dart" />
         <option value="$PROJECT_DIR$/lib/common.dart" />
+        <option value="$PROJECT_DIR$/lib/src/models/user.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
       </list>
     </option>
   </component>
@@ -190,34 +191,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
-              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
-              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
-              <item name="src" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
-              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
-              <item name="src" type="1f31426a:PackageElementNode" />
-              <item name="models" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
-              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
-              <item name="src" type="1f31426a:PackageElementNode" />
-              <item name="widgets" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -274,7 +248,34 @@
         </subPane>
         <option name="show-excluded-files" value="false" />
       </pane>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
+              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
+              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
+              <item name="src" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
+              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
+              <item name="src" type="1f31426a:PackageElementNode" />
+              <item name="models" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="flx_common_package" type="58d84e3e:PackageViewProjectNode" />
+              <item name="flx_common_package" type="616d4139:PackageViewModuleNode" />
+              <item name="src" type="1f31426a:PackageElementNode" />
+              <item name="widgets" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
     </panes>
   </component>
@@ -707,24 +708,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+    <entry file="file://$PROJECT_DIR$/lib/common.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+        <state relative-caret-position="169">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/models/user.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        <state relative-caret-position="361">
+          <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/common.dart">
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        <state relative-caret-position="76">
+          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
         </state>
       </provider>
     </entry>

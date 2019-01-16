@@ -6,7 +6,8 @@ class User {
   String companyAddress;
   String welcomeMessage;
   String role;
-  User(this.loginId, this.loggedIn, this.accessToken, this.companyAddress, this.companyName,this.welcomeMessage, this.role);
+  int timer;
+  User(this.loginId, this.loggedIn, this.accessToken, this.companyAddress, this.companyName,this.welcomeMessage, this.role, this.timer);
   User.loggedOut() {
     this.loginId = '';
     this.loggedIn = false;
@@ -14,6 +15,7 @@ class User {
     this.companyName = '';
     this.companyAddress = '';
     this.welcomeMessage = '';
+    this.timer = 0;
     this.role = '';
   }
 }
